@@ -1,0 +1,26 @@
+{
+  "manifest_version": 3,
+  "name": "WebCursor Agent",
+  "description": "In-page AI assistant with a visible cursor overlay and step-by-step actions.",
+  "version": "1.0.0",
+  "action": {
+    "default_title": "WebCursor Agent",
+    "default_popup": "popup.html"
+  },
+  "options_page": "options.html",
+  "permissions": ["activeTab", "scripting", "storage"],
+  "host_permissions": ["<all_urls>"],
+  "background": {
+    "service_worker": "background.js",
+    "type": "module"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["contentScript.js"],
+      "css": ["overlay.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "icons": {}
+}

@@ -1,0 +1,55 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <title>WebCursor Agent Settings</title>
+    <link rel="stylesheet" href="popup.css" />
+    <style>
+      body { width: 600px; }
+      .field { margin-bottom: 16px; }
+      label { font-weight: 600; display: block; margin-bottom: 6px; }
+      input[type="text"], input[type="password"], textarea { width: 100%; }
+      textarea { min-height: 100px; }
+      .row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    </style>
+  </head>
+  <body>
+    <h1>Settings</h1>
+
+    <div class="field">
+      <label for="apiKey">OpenAI API Key</label>
+      <input type="password" id="apiKey" placeholder="sk-..." />
+    </div>
+
+    <div class="field">
+      <label for="model">Model</label>
+      <input type="text" id="model" placeholder="gpt-4o-mini" />
+    </div>
+
+    <div class="field row">
+      <div>
+        <label for="allowlist">Domain Allowlist (one per line)</label>
+        <textarea id="allowlist"></textarea>
+      </div>
+      <div>
+        <label for="denylist">Domain Denylist (one per line)</label>
+        <textarea id="denylist"></textarea>
+      </div>
+    </div>
+
+    <div class="field">
+      <label>
+        <input type="checkbox" id="requireConfirmRisky" /> Require confirmation for risky actions
+      </label>
+    </div>
+
+    <div class="field">
+      <label for="maxSteps">Max steps</label>
+      <input type="text" id="maxSteps" />
+    </div>
+
+    <button id="saveButton">Save Settings</button>
+
+    <script src="options.js"></script>
+  </body>
+</html>
